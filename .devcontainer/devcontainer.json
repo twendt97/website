@@ -17,6 +17,9 @@
 			"ppa": "false"
 		}
 	},
+	"mounts": [
+		"source=${localEnv:HOME}/web_mount,target=/images,type=bind,consistency=cached"
+	],
 	// Configure tool-specific properties.
 	"customizations": {
 		// Configure properties specific to VS Code.

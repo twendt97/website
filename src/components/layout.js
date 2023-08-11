@@ -8,6 +8,9 @@ import {
     navLinkText,
     siteTitle
 } from './layout.module.css'
+import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap/dist/js/bootstrap.min.js"
+import "@popperjs/core/dist/umd/popper.min.js"
 
 const Layout = ({ pageTitle, children }) => {
     const data = useStaticQuery(graphql`
@@ -26,7 +29,7 @@ const Layout = ({ pageTitle, children }) => {
             <header className={siteTitle}>{data.site.siteMetadata.title}</header>
             <nav>
                 <ul className={navLinks}>
-                    <li className={navLinkItem}>
+                    <li className={`${navLinkItem} font-monospace`}>
                         <Link to="/" className={navLinkText}>
                             Home
                         </Link>
@@ -47,7 +50,7 @@ const Layout = ({ pageTitle, children }) => {
                 <h1 className={heading}>{pageTitle}</h1>
                 {children}
             </main>
-        </div>
+        </div >
     )
 }
 

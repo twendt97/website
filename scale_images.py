@@ -38,7 +38,7 @@ if (input_dir == output_dir):
 output_dir.mkdir(parents=True, exist_ok=True)
 
 for img in list_input_images(Path(args.input)):
-    outfile = (Path(output_dir, img.name))
+    outfile = (Path(output_dir, (img.stem + img.suffix.lower())))
     pil_img = Image.open(img)
     pil_img.thumbnail(img_size)
     pil_img.save(outfile, "JPEG")

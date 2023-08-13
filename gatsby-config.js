@@ -5,6 +5,20 @@ module.exports = {
   siteMetadata: {
     title: `My First Gatsby Blog`,
     siteUrl: `https://www.yourdomain.tld`,
+    menuItems: [
+      {
+        name: "Home",
+        link: "/"
+      },
+      {
+        name: "Blog",
+        link: "/blog"
+      },
+      {
+        name: "About",
+        link: "/about"
+      }
+    ]
   },
   plugins: [
     "gatsby-plugin-image",

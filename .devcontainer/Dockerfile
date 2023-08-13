@@ -35,7 +35,14 @@ RUN \
 RUN su node -c "npm install -g gatsby-cli"
 
 # [Optional] Uncomment this section to install additional OS packages.
-# RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-#     && apt-get -y install --no-install-recommends <your-package-list-here>
+RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+    && apt-get -y install --no-install-recommends python3 python3-pip python3-venv
 
-RUN echo "source /usr/share/bash-completion/completions/git" >> /home/${USERNAME}/.bashrc
+ENV VIRTUAL_ENV=/opt/venv
+RUN python3 -m venv $VIRTUAL_ENV 
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+COPY requirements.txt .
+RUN pip3 install --upgrade pip && pip3 install --upgrade -r /requirements.txt \
+    && rm -f /requirements.txt \
+    && chown --recursive ${USERNAME}:${USERNAME} $VIRTUAL_ENV \
+    && echo "source /usr/share/bash-completion/completions/git" >> /home/${USERNAME}/.bashrc

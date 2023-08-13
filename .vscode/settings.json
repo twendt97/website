@@ -1,0 +1,10 @@
+{
+    "python.testing.pytestEnabled": false,
+    "python.testing.unittestEnabled": false,
+    "python.defaultInterpreterPath": "/opt/venv/bin/python",
+    "python.terminal.activateEnvironment": false,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.autopep8",
+        "editor.formatOnSave": true
+    },
+}

@@ -1,11 +1,10 @@
 import * as React from 'react'
-import Layout from '../../components/layout'
-import Seo from '../../components/seo'
+import Layout from '../../../components/layout'
+import Seo from '../../../components/seo'
 import { graphql } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 const BlogPost = (props /* { data, children } */) => {
-  console.log(props)
   const image = getImage(props.data.mdx.frontmatter.hero_image)
   return (
     <Layout pageTitle={props.data.mdx.frontmatter.title}>

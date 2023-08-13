@@ -2,8 +2,10 @@ import * as React from 'react'
 import Layout from '../../components/layout'
 import Seo from '../../components/seo'
 import { Link, graphql } from 'gatsby'
+import Moment from 'moment'
 
 const BlogPage = ({ data }) => {
+  Moment.locale('en')
   return (
     <Layout pageTitle="My Blog Posts">
       <ul>
@@ -11,11 +13,11 @@ const BlogPage = ({ data }) => {
           data.allMdx.nodes.map((node) => (
             <article>
               <h2>
-                <Link to={`/blog/${node.frontmatter.slug}`}>
+                <Link to={`/blog/${node.frontmatter.date}/${node.frontmatter.slug}`}>
                   {node.frontmatter.title}
                 </Link>
               </h2>
-              <p>Posted: {node.frontmatter.date}</p>
+              <p>Posted: {Moment(node.frontmatter.date).format('MMMM D, YYYY')}</p>
               <p>{node.excerpt}</p>
             </article>
           ))
@@ -29,9 +31,10 @@ export const query = graphql`
     allMdx(sort: { frontmatter: { date: DESC }}) {
       nodes {
         frontmatter {
-          date(formatString: "MMMM D, YYYY")
+          date
           title
           slug
+          language
         }
         id
         excerpt(pruneLength: 200)

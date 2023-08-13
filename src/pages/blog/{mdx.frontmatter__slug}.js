@@ -14,12 +14,6 @@ const BlogPost = (props /* { data, children } */) => {
         image={image}
         alt={props.data.mdx.frontmatter.hero_image_alt}
       />
-      <p>
-        Photo Credit:{" "}
-        <a href={props.data.mdx.frontmatter.hero_image_credit_link}>
-          {props.data.mdx.frontmatter.hero_image_credit_text}
-        </a>
-      </p>
       {props.children}
     </Layout>
   )
@@ -32,8 +26,6 @@ query ($id: String) {
       title
       date(formatString: "MMMM D, YYYY")
       hero_image_alt
-      hero_image_credit_link
-      hero_image_credit_text
       hero_image {
         childImageSharp {
           gatsbyImageData

@@ -1,9 +1,5 @@
 import * as React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import {
-    heading,
-    siteTitle
-} from './layout.module.css'
 import Navbar from './navigation'
 
 const Layout = ({ pageTitle, children }) => {

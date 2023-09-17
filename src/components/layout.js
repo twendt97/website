@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import Navbar from './navigation'
 
 const Layout = ({ pageTitle, children }) => {
-    const data = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
     query {
         site {
           id
@@ -12,18 +12,18 @@ const Layout = ({ pageTitle, children }) => {
           }
         }
       }`
-    )
+  )
 
-    return (
-        <div>
-            <Navbar></Navbar>
-            <div className="container bg-light shadow my-3 p-4">
-                <main>
-                    {children}
-                </main>
-            </div >
-        </div>
-    )
+  return (
+    <div>
+      <Navbar></Navbar>
+      <div className="container bg-light shadow my-3 p-4">
+        <main>
+          {children}
+        </main>
+      </div >
+    </div>
+  )
 }
 
 export default Layout

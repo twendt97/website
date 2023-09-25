@@ -49,7 +49,7 @@ export const ImageSlider = ({ parentDirectory }) => {
                     <div class={(index === 0 ? "active " : "") + "carousel-item"}>
                         <GatsbyImage
                             image={img}
-                            className="d-block w-100 rounded"
+                            className="d-block w-100"
                         />
                     </div>
                 )}
@@ -86,7 +86,22 @@ export const ImageText = ({ image, children }) => {
     return (
         <SideBySide
             left={children}
-            right={<GatsbyImage image={gatsbyImg} className='d-block rounded' />}
+            right={<GatsbyImage image={gatsbyImg} className='d-block' />}
         />
+    )
+}
+
+export const OverlayCard = ({ image, image_alt, children }) => {
+    return (
+        <div class="card text-dark my-4 border-0 rounded-0">
+            <GatsbyImage
+                image={getImage(image)}
+                className="card-img rounded-0"
+                alt={image_alt}
+            />
+            <div class="card-img-overlay bg-light bg-opacity-75 p-md-5 m-5 rounded-0">
+                {children}
+            </div>
+        </div >
     )
 }

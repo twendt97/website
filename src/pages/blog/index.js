@@ -1,35 +1,27 @@
 import * as React from 'react'
 import Layout from '../../components/layout'
 import Seo from '../../components/seo'
-import { Link, graphql } from 'gatsby'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import Moment from 'moment'
+import { graphql } from 'gatsby'
+import { OverlayCard } from '../../components/images'
+import { BlogPostPreview } from '../../components/text'
+import moment from 'moment'
 
 const BlogPage = ({ data }) => {
-  Moment.locale('en')
   return (
     <Layout pageTitle="My Blog Posts">
       {data.allMdx.nodes.map((node) => (
-        <div class="card text-light my-4 border-0 rounded-0">
-          <GatsbyImage
-            image={getImage(node.frontmatter.hero_image)}
-            className="card-img rounded-0"
-            alt={node.frontmatter.hero_image_alt}
-          />
-          <div class="card-img-overlay bg-dark bg-opacity-75 p-5 m-5">
-            <h1 class="card-title">
-              <Link
-                to={`/blog/${node.frontmatter.date}/${node.frontmatter.slug}`}
-                className='text-light text-decoration-none'
-              >
-                {node.frontmatter.title}
-              </Link>
-            </h1>
-            <p class="card-text d-none d-lg-block fs-5">
-              {node.excerpt}
-            </p>
-          </div>
-        </div>
+        <OverlayCard
+          image={node.frontmatter.hero_image}
+          image_alt={node.frontmatter.hero_image_alt}
+        >
+          <BlogPostPreview
+            title={node.frontmatter.title}
+            link={`/blog/${node.frontmatter.date}/${node.frontmatter.slug}`}
+            post_date={moment(node.frontmatter.date).format("D MMM YYYY")}
+          >
+            {node.excerpt}
+          </BlogPostPreview>
+        </OverlayCard>
       ))
       }
     </Layout >

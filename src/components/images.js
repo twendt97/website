@@ -2,7 +2,7 @@ import * as React from 'react'
 import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
-function useAllImages() {
+export function useAllImages() {
     const allImages = useStaticQuery(graphql`
     query {
         allFile(

@@ -29,6 +29,14 @@ module.exports = {
       options: {
         name: `blog`,
         path: `${__dirname}/blog`,
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: `components`,
+        path: `${__dirname}/src/components`,
+        fastHash: true
       }
     },
     {

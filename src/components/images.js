@@ -99,7 +99,7 @@ export const OverlayCard = ({ image, image_alt, children }) => {
                 className="card-img rounded-0"
                 alt={image_alt}
             />
-            <div class="card-img-overlay bg-light bg-opacity-75 p-md-5 m-5 rounded-0">
+            <div class="card-img-overlay bg-light bg-opacity-75 p-4 p-md-5 m-md-5 rounded-0">
                 {children}
             </div>
         </div >

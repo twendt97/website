@@ -17,7 +17,7 @@ const BlogPage = ({ data }) => {
           <BlogPostPreview
             title={node.frontmatter.title}
             link={`/blog/${node.frontmatter.date}/${node.frontmatter.slug}`}
-            post_date={moment(node.frontmatter.date).format("D MMM YYYY")}
+            post_date={moment(node.frontmatter.date).format("D MMMM YYYY")}
             language={node.frontmatter.language}
           >
             {node.excerpt}

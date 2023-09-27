@@ -19,6 +19,7 @@ const BlogPage = ({ data }) => {
             link={`/blog/${node.frontmatter.date}/${node.frontmatter.slug}`}
             post_date={moment(node.frontmatter.date).format("D MMMM YYYY")}
             language={node.frontmatter.language}
+            tags={node.frontmatter.tags}
           >
             {node.excerpt}
           </BlogPostPreview>
@@ -37,6 +38,7 @@ query MyQuery {
         title
         slug
         language
+        tags
         hero_image_alt
         hero_image {
           childImageSharp {

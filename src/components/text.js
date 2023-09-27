@@ -1,15 +1,17 @@
 import * as React from 'react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import { BsCalendarFill } from "@react-icons/all-files/bs/BsCalendarFill"
+import { ImPencil2 } from '@react-icons/all-files/im/ImPencil2'
 
-export const BlogPostPreview = ({ link, title, post_date, language, children }) => {
+export const BlogPostPreview = ({ link, title, post_date, language, tags, children }) => {
     const flags = useStaticQuery(graphql`{
     allFile(
-        filter: {sourceInstanceName: {eq: "components"}, relativePath: {regex: "/static_images/.*_flag.png$/"}}
+        filter: {
+            sourceInstanceName: {eq: "components"}, 
+            relativePath: {regex: "/static_images/.*_flag.png$/"}
+        }
     ) {
         nodes {
-        relativeDirectory
         relativePath
         name
         childImageSharp {
@@ -17,8 +19,7 @@ export const BlogPostPreview = ({ link, title, post_date, language, children }) 
                 height: 30 
                 width: 30
                 quality: 100
-                outputPixelDensities: [4]
-                transformOptions: {cropFocus: CENTER}
+                transformOptions: {cropFocus: CENTER, fit: FILL}
             )
         }
         }
@@ -45,32 +46,36 @@ export const BlogPostPreview = ({ link, title, post_date, language, children }) 
     const flag_img = getImage(flags.allFile.nodes.find((node) => node.name === flag_name))
     return (
         <div>
-            <h3 class="card-title">
+            <div class="row"><h3 class="card-title">
                 <Link to={link} className='link-dark link-opacity-75 link-opacity-100-hover text-decoration-none'>
                     {title}
                 </Link>
-            </h3>
-            <div class="my-3 card-text d-none d-lg-block fs-5">
+            </h3></div>
+            <div class="my-3 card-text d-none d-lg-block fs-5 row">
                 <p>
                     {children}
                 </p>
             </div>
-            <div class="d-flex justify-content-start align-items-center my-3 fs-5">
-                <div class='me-3'>
-                    <GatsbyImage
-                        image={flag_img}
-                        className='rounded-5'
-                    />
+            <div class='row my-2 my-md-4 mx-2'><div class='col'>
+                <div class="row align-items-center my-2">
+                    <span class='col-2 p-0'>
+                        <GatsbyImage image={flag_img} className='rounded-5 img-fluid' />
+                    </span>
+                    <span class="col-3">
+                        <Link to={link} className='btn btn-outline-dark px-4'>
+                            {read_lable}
+                        </Link>
+                    </span>
                 </div>
-                <div class="text-center mx-2">
-                    <Link to={link} className='btn btn-outline-dark px-5'>
-                        {read_lable}
-                    </Link>
+                <div class='row align-items-center fs-6'>
+                    <span class="col-2 p-0 ps-0 fs-4"><ImPencil2 /></span>
+                    <span class="col">{post_date}</span>
                 </div>
             </div>
-            <div class='d-flex d-flex-row justify-content-start fs-5'>
-                <span class="mx-1"><BsCalendarFill /></span>
-                <span class="mx-4">{post_date}</span>
+                <div class='col-4 col-md-6'>
+                    {tags !== null ? tags.slice(0, 5).map((tag) =>
+                        <span class='badge text-bg-primary mx-1'> {'#' + tag}</span>) : ''}
+                </div>
             </div>
         </div>
     )

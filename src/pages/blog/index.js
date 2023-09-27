@@ -21,7 +21,7 @@ const BlogPage = ({ data }) => {
             language={node.frontmatter.language}
             tags={node.frontmatter.tags}
           >
-            {node.excerpt}
+            {node.frontmatter.summary}
           </BlogPostPreview>
         </OverlayCard>
       ))
@@ -39,6 +39,7 @@ query MyQuery {
         slug
         language
         tags
+        summary
         hero_image_alt
         hero_image {
           childImageSharp {

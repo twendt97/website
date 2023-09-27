@@ -47,7 +47,8 @@ export const BlogPostPreview = ({ link, title, post_date, language, tags, childr
     return (
         <div>
             <div class="row"><h3 class="card-title">
-                <Link to={link} className='link-dark link-opacity-75 link-opacity-100-hover text-decoration-none'>
+                <Link to={link}
+                    className='text-capitalize link-dark link-opacity-75 link-opacity-100-hover text-decoration-none'>
                     {title}
                 </Link>
             </h3></div>

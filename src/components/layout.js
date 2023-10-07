@@ -17,7 +17,7 @@ const Layout = ({ pageTitle, children }) => {
   return (
     <div>
       <Navbar></Navbar>
-      <div className="container bg-light shadow my-3 p-4">
+      <div className="container bg-light shadow my-sm-3">
         <main>
           {children}
         </main>

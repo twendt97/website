@@ -24,11 +24,11 @@ export function useAllImages() {
 
 const SideBySide = ({ left, right }) => {
     return (
-        <div class="row justify-content-evenly align-items-center my-4">
-            <div class="col-xl-4">
+        <div class="row align-items-center my-4">
+            <div class="col-lg-6">
                 {left}
             </div>
-            <div class="col-xl-6">
+            <div class="col-lg-6">
                 {right}
             </div>
         </div>

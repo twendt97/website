@@ -9,23 +9,25 @@ import moment from 'moment'
 const BlogPage = ({ data }) => {
   return (
     <Layout pageTitle="My Blog Posts">
-      {data.allMdx.nodes.map((node) => (
-        <OverlayCard
-          image={node.frontmatter.hero_image}
-          image_alt={node.frontmatter.hero_image_alt}
-        >
-          <BlogPostPreview
-            title={node.frontmatter.title}
-            link={`/blog/${node.frontmatter.date}/${node.frontmatter.slug}`}
-            post_date={moment(node.frontmatter.date).format("D MMMM YYYY")}
-            language={node.frontmatter.language}
-            tags={node.frontmatter.tags}
+      <div class="py-3 p-sm-3">
+        {data.allMdx.nodes.map((node) => (
+          <OverlayCard
+            image={node.frontmatter.hero_image}
+            image_alt={node.frontmatter.hero_image_alt}
           >
-            {node.frontmatter.summary}
-          </BlogPostPreview>
-        </OverlayCard>
-      ))
-      }
+            <BlogPostPreview
+              title={node.frontmatter.title}
+              link={`/blog/${node.frontmatter.date}/${node.frontmatter.slug}`}
+              post_date={moment(node.frontmatter.date).format("D MMMM YYYY")}
+              language={node.frontmatter.language}
+              tags={node.frontmatter.tags}
+            >
+              {node.frontmatter.summary}
+            </BlogPostPreview>
+          </OverlayCard>
+        ))
+        }
+      </div>
     </Layout >
   )
 }

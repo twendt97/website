@@ -1,12 +1,14 @@
 import * as React from 'react'
 import Layout from "../components/layout";
-import { graphql } from "gatsby";
+import { Link, graphql } from "gatsby";
 import { MDXProvider } from '@mdx-js/react';
 import Seo from '../components/seo';
 import { ImageSlider, ImageSliderText, ImageText } from '../components/images'
 import { H1, Paragraph } from '../components/mdx_design'
+import { useBlogIndexLink } from '../components/hooks';
 
 export default function BlogPost({ data, children }) {
+  const blogIndex = useBlogIndexLink();
   return (
     <Layout pageTitle={data.mdx.frontmatter.title}>
       <div class="py-3 p-sm-3">
@@ -19,6 +21,9 @@ export default function BlogPost({ data, children }) {
           ImageText,
           ImageSliderText
         }}> {children}</MDXProvider>
+        <Link to={blogIndex.link} className='btn btn-outline-dark px-4 my-4'>
+          Back to all Posts
+        </Link>
       </div>
     </Layout>)
 }

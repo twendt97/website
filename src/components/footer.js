@@ -1,10 +1,10 @@
-import { graphql, useStaticQuery } from 'gatsby'
 import * as React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import { AiFillLinkedin } from "@react-icons/all-files/ai/AiFillLinkedin"
 import { AiFillGithub } from "@react-icons/all-files/ai/AiFillGithub"
 import { AiOutlineInstagram } from "@react-icons/all-files/ai/AiOutlineInstagram"
 
-export const Footer = ({ }) => {
+export const Footer = () => {
     const data = useStaticQuery(graphql`
         query {
         site {

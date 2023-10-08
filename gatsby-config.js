@@ -5,6 +5,20 @@ module.exports = {
   siteMetadata: {
     title: `Thilo Wendt`,
     siteUrl: `https://www.thilo-wendt.de`,
+    socialMedia: [
+      {
+        name: "linkedin",
+        link: "https://www.linkedin.com/in/thilo-wendt/"
+      },
+      {
+        name: "github",
+        link: "https://github.com/twendt97"
+      },
+      {
+        name: "instagram",
+        link: "https://www.instagram.com/thilow97/"
+      },
+    ],
     menuItems: [
       {
         name: "Home",

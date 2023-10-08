@@ -3,8 +3,7 @@ import * as React from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 
 
-const Navbar = ({ location }) => {
-    console.log(location)
+const Navbar = ({ }) => {
     const data = useStaticQuery(graphql`
     query {
         site {

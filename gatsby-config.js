@@ -3,8 +3,8 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `My First Gatsby Blog`,
-    siteUrl: `https://www.yourdomain.tld`,
+    title: `Thilo Wendt`,
+    siteUrl: `https://www.thilo-wendt.de`,
     menuItems: [
       {
         name: "Home",
@@ -14,10 +14,6 @@ module.exports = {
         name: "Blog",
         link: "/blog"
       },
-      {
-        name: "About",
-        link: "/about"
-      }
     ]
   },
   plugins: [

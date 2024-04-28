@@ -2,3 +2,5 @@ node_modules/
 .cache/
 public
 .DS_Store
+venv
+img_raw
